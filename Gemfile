@@ -13,6 +13,7 @@ group :development do
   gem 'sqlite3'
 end
 # Use SCSS for stylesheets
+gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -53,6 +54,7 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl_rails'
 end
+
 
 # group :development do
 #   # Access an IRB console on exception pages or by using <%= console %> in views
