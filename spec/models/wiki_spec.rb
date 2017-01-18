@@ -1,4 +1,5 @@
 require 'rails_helper'
+include 'random_data'
 
 RSpec.describe Wiki, type: :model do
 let(:user) { create(:user) }

@@ -1,4 +1,6 @@
 require 'rails_helper'
+include SessionsHelper
+include 'random_data'
 
 RSpec.describe WikisController, type: :controller do
 
