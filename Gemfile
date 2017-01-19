@@ -29,6 +29,7 @@ gem 'turbolinks'
 
 gem 'bootstrap'
 gem 'devise'
+gem 'faker'
 gem 'figaro'
 gem 'pry'
 gem 'pundit'
