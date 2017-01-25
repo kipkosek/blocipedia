@@ -1,5 +1,6 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<div class="top-buffer">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -36,9 +37,23 @@
     <%= f.submit "Update", class: "btn btn-secondary" %>
   </div>
 <% end %>
+
+<% if current_user.standard? %>
+  <div class="top-buffer">
+    <h3>Upgrade to Premium</h3>
+    <p>Create private wikis — only $15.<%= button_to "Upgrade", charges_path, class: 'btn btn-success' %></p>
+  </div>
+<% end %>
+
+<% if current_user.premium? %>
+  <div class="top-buffer">
+    <h3>Downgrade to Standard</h3>
+    <%= button_to "Downgrade", users_downgrade_path, data: { confirm: "Are you sure?" }, method: :put, class: 'btn btn-warning' %></p>
+  </div>
+<% end %>
+
 <div class="top-buffer">
   <h3>Cancel my account</h3>
-
   <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
 </div>
 <%= link_to "Back", :back %>
