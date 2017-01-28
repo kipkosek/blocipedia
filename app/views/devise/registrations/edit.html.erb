@@ -48,7 +48,7 @@
 <% if current_user.premium? %>
   <div class="top-buffer">
     <h3>Downgrade to Standard</h3>
-    <%= button_to "Downgrade", users_downgrade_path, data: { confirm: "Are you sure?" }, method: :put, class: 'btn btn-warning' %></p>
+    <%= button_to "Downgrade", users_downgrade_path, data: { confirm: "Are you sure? Your private wikis will become public." }, method: :put, class: 'btn btn-warning' %></p>
   </div>
 <% end %>
 

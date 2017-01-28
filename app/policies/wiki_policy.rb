@@ -1,5 +1,9 @@
 class WikiPolicy < ApplicationPolicy
 
+  def owned
+    wiki.user_id == user.id
+  end
+
   def index?
     user.present?
   end
@@ -25,7 +29,7 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin?
+    user.admin? || owned
   end
 
   class Scope
