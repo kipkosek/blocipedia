@@ -33,6 +33,7 @@ gem 'devise'
 gem 'figaro'
 gem 'pry'
 gem 'pundit'
+gem 'redcarpet'
 gem 'stripe'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
