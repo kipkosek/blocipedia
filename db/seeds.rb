@@ -29,7 +29,8 @@ admin = User.create!(
   wiki = Wiki.create!(
     user: users.sample,
     title: Faker::StarWars.unique.planet,
-    body: Faker::StarWars.unique.quote
+    body: Faker::StarWars.unique.quote,
+    private: false
   )
 end
 wikis = Wiki.all

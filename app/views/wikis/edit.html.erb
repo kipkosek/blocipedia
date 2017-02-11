@@ -25,5 +25,27 @@
           </div>
       <% end %>
     <% end %>
+    <% if current_user.admin? || (current_user.premium? && current_user.wikis.include?(@wiki)) %>
+      <%= form_tag(collaborators_path) do %>
+          <div class="form-group">
+            <%= label_tag "Add Collaborator" %>
+            <%= text_field_tag :user_email, nil, class: 'form-control', placeholder: "Enter collaborator email" %>
+          </div>
+          <%= hidden_field_tag :wiki_id, @wiki.id %>
+          <div class="form-group">
+            <%= submit_tag "Add", class: 'btn btn-primary' %>
+          </div>
+      <% end %>
+      <%= form_tag(collaborator_path, method: "delete") do %>
+          <div class="form-group">
+            <%= label_tag "Remove Collaborator" %>
+            <%= text_field_tag :user_email, nil, class: 'form-control', placeholder: "Enter collaborator email" %>
+          </div>
+          <%= hidden_field_tag :wiki_id, @wiki.id %>
+            <div class="form-group">
+              <%= submit_tag "Remove", class: 'btn btn-danger' %>
+            </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
