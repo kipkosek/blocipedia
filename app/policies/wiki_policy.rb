@@ -43,10 +43,11 @@ class WikiPolicy < ApplicationPolicy
     def resolve
       if user.admin?
         scope.all
+      elsif user.role == 'premium'
+        scope.eager_load(:collaborators).where("wikis.private = ? OR wikis.user_id = ? OR collaborators.user_id = ?", false, @user.id, @user.id)
       else
-        (scope.where(private: nil) + user.wikis).uniq
+        scope.eager_load(:collaborators).where("wikis.private = ? OR collaborators.user_id = ?", false, @user.id)
       end
     end
   end
-
 end
