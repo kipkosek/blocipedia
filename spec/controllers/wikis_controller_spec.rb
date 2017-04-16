@@ -1,5 +1,10 @@
 require 'rails_helper'
 
+def setup
+  @request.env["devise.mapping"] = Devise.mappings[:user]
+  sign_in FactoryGirl.create(:user)
+end
+
 RSpec.describe WikisController, type: :controller do
   let(:my_user) { create(:user) }
   let(:other_user) { create(:user) }
@@ -7,7 +12,7 @@ RSpec.describe WikisController, type: :controller do
 
   context "standard user doing CRUD on own wiki" do
     before do
-      sign_in(my_user)
+      setup
     end
 
     describe "GET index" do
@@ -19,7 +24,7 @@ RSpec.describe WikisController, type: :controller do
 
     describe "GET show" do
       it "returns http success" do
-        get :show, id: my_post.id
+        get :show, id: my_wiki.id
         expect(response).to have_http_status(:success)
       end
     end
@@ -33,7 +38,7 @@ RSpec.describe WikisController, type: :controller do
 
     describe "GET #edit" do
       it "returns http success" do
-        get :edit, id: my_post.id
+        get :edit, id: my_wiki.id
         expect(response).to have_http_status(:success)
       end
     end

@@ -3,7 +3,7 @@
   User.create!(
   username: Faker::StarWars.unique.character,
   email: Faker::Internet.unique.email,
-  password: Faker::Internet.unique.password(8)
+  password: 'helloworld'
   )
 end
 users = User.all
