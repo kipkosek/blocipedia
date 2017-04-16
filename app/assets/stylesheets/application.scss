@@ -1,5 +1,14 @@
 @import "bootstrap";
 
+body {
+  color: rgb(71, 77, 50);
+  background-color: rgb(221, 193, 136);
+}
+
+a:link {
+  color: rgb(99, 107, 70);
+}
+
 ul.nav-tabs li {
   margin-right: 20px;
 }
