@@ -1,6 +1,6 @@
 # Blocipedia
 
-**An app that allows users to create public and private Markdown-based wikis.**
+**A Ruby on Rails app that allows users to create public and private Markdown-based wikis.**
 
 ![Screenshot](app/assets/images/WikiShow.png)
 
